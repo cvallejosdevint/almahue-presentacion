@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Nómina semanal - antes y después (29/09/2026)</title>
+  <style>
+    :root { color-scheme: light; }
+    body {
+      margin: 0;
+      font: 16px/1.45 "Segoe UI", sans-serif;
+      background: #f4f1ea;
+      color: #1c1917;
+    }
+    header {
+      padding: 28px 32px 8px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 1.6rem; margin: 0 0 8px; }
+    header p { margin: 0 0 8px; color: #57534e; max-width: 78ch; }
+    section {
+      max-width: 1600px;
+      margin: 28px auto;
+      padding: 0 32px 8px;
+    }
+    h2 { font-size: 1.15rem; margin: 0 0 12px; }
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    figure {
+      margin: 0;
+      background: #fff;
+      border: 1px solid #e7e5e4;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    figcaption {
+      padding: 10px 14px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    figure.antes figcaption { background: #e7e5e4; }
+    figure.despues figcaption { background: #dcfce7; color: #14532d; }
+    figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      cursor: zoom-in;
+    }
+    .nota { margin: 10px 0 0; color: #44403c; }
+    ul.nota { padding-left: 1.2rem; }
+    ul.nota li { margin: 4px 0; }
+    @media (max-width: 900px) {
+      .pair { grid-template-columns: 1fr; }
+    }
+    .visor {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      background: rgba(12, 10, 9, 0.92);
+      color: #fafaf9;
+    }
+    .visor.abierto { display: block; }
+    .visor-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: linear-gradient(rgba(12, 10, 9, 0.85), transparent);
+    }
+    .visor-bar strong { margin-right: auto; font-size: 0.95rem; }
+    .visor-bar span { color: #d6d3d1; font-size: 0.85rem; }
+    .visor button {
+      border: 0;
+      border-radius: 8px;
+      background: #292524;
+      color: #fafaf9;
+      font: 600 14px/1 "Segoe UI", sans-serif;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    .visor button:hover { background: #44403c; }
+    .lienzo { position: absolute; inset: 0; overflow: hidden; cursor: grab; touch-action: none; }
+    .lienzo.arrastrando { cursor: grabbing; }
+    .lienzo img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      max-width: none;
+      width: auto;
+      height: auto;
+      max-height: 88vh;
+      transform-origin: center center;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+      .volver { max-width: 1600px; margin: 0 auto; padding: 14px 32px 0; }
+    .volver a { color: #1c1917; font-weight: 650; text-decoration: none; }
+    .volver a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <p class="volver"><a href="../../index.html">Volver al inicio</a></p>
+  <header>
+    <h1>Nómina semanal - antes y después</h1>
+    <p>29/09/2026. Empresa ALMAHUE EXPORT SPA, periodo 2026-09, modo real. Cada fila es la misma pantalla a tamaño de escritorio: a la izquierda como estaba, a la derecha con lo nuevo.</p>
+    <p>El recuadro verde y la etiqueta NUEVO están solo en la captura, no en el sistema. Un clic abre la imagen. La rueda o las teclas + y - hacen zoom. Izquierda y derecha cambian entre el antes y el después. Esc cierra.</p>
+  </header>
+
+  <section>
+    <h2>Franja de semanas</h2>
+    <div class="pair">
+      <figure class="antes">
+        <figcaption>Antes</figcaption>
+        <img src="antes-semana.png" alt="Nómina con año, mes y semana, sin franja" />
+      </figure>
+      <figure class="despues">
+        <figcaption>Después</figcaption>
+        <img src="despues-semana.png" alt="Nómina con franja de semanas, plazos y filtros marcados en verde" />
+      </figure>
+    </div>
+    <p class="nota">La franja marca la semana anterior, la en curso y la siguiente, y suma los pendientes de cada bloque. Un clic abre esa semana y sale de la vista acumulada. En el ejemplo, S5 de septiembre 2026 es la semana en curso (29 y 30). S3 queda seleccionada porque es la semana que estaba abierta, con 1 pendiente. S4 muestra 2.</p>
+  </section>
+
+  <section>
+    <h2>Pendientes hasta la semana en curso, y plazos de crítico</h2>
+    <div class="pair">
+      <figure class="antes">
+        <figcaption>Antes</figcaption>
+        <img src="antes-semana.png" alt="Nómina sin el mantenedor de plazos" />
+      </figure>
+      <figure class="despues">
+        <figcaption>Después</figcaption>
+        <img src="despues-plazos.png" alt="Mantenedor de plazos abierto, recuadro verde en el panel" />
+      </figure>
+    </div>
+    <ul class="nota">
+      <li>Pendientes hasta la semana en curso lista lo que sigue abierto en bloques anteriores o en el actual. Desde y hasta, por vencimiento, achican esa lista y también la exportación.</li>
+      <li>El umbral general de Crítico parte en 30 días. Atrasada sigue siendo el atraso por debajo de ese número, en rojo. Crítico va en violeta.</li>
+      <li>Un proveedor puede tener su propio número. Si lo tiene, reemplaza al general. Los filtros 30 y 90 son atajos de días de atraso: no cambian el umbral.</li>
+      <li>Pagar no borra el aviso. La fila pasa a Pagada.</li>
+      <li>En esta empresa las tres facturas vencen en octubre, así que ninguna fila está atrasada. El violeta se ve en la muestra del mantenedor.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Lista acumulada</h2>
+    <div class="pair">
+      <figure class="antes">
+        <figcaption>Antes</figcaption>
+        <img src="antes-tabla.png" alt="Una sola factura en la semana S3" />
+      </figure>
+      <figure class="despues">
+        <figcaption>Después</figcaption>
+        <img src="despues-tabla.png" alt="Tres facturas hasta la semana en curso, las dos nuevas con recuadro verde" />
+      </figure>
+    </div>
+    <p class="nota">Antes, S3 mostraba solo 33-1001 ($237.881). Con pendientes hasta la semana en curso aparecen también 56 y 57 de S4, marcadas en verde. El total de esa vista es $261.681. Desde y hasta recortan por vencimiento. Al pulsar una semana de la franja, la lista vuelve a ese bloque.</p>
+  </section>
+
+  <div class="visor" id="visor" hidden>
+    <div class="visor-bar">
+      <strong id="visor-titulo"></strong>
+      <span>izquierda / derecha: antes y después. + y - : zoom. Esc cierra</span>
+      <button type="button" id="zoom-out" aria-label="Alejar">−</button>
+      <button type="button" id="zoom-reset" aria-label="Tamaño inicial">100%</button>
+      <button type="button" id="zoom-in" aria-label="Acercar">+</button>
+      <button type="button" id="visor-cerrar">Cerrar</button>
+    </div>
+    <div class="lienzo" id="lienzo">
+      <img id="visor-img" alt="" />
+    </div>
+  </div>
+  <script>
+    const pares = [...document.querySelectorAll('.pair')].map((pair) => {
+      const section = pair.closest('section');
+      const titulo = section.querySelector('h2').textContent.trim();
+      return [...pair.querySelectorAll('img')].map((img) => ({
+        src: img.getAttribute('src'),
+        alt: img.alt,
+        lado: img.closest('figure').classList.contains('despues') ? 'Después' : 'Antes',
+        titulo,
+      }));
+    });
+    document.querySelectorAll('.pair img').forEach((img) => {
+      img.addEventListener('click', () => {
+        const pair = img.closest('.pair');
+        const indicePar = [...document.querySelectorAll('.pair')].indexOf(pair);
+        const indiceLado = [...pair.querySelectorAll('img')].indexOf(img);
+        abrir(indicePar, indiceLado);
+      });
+    });
+    const visor = document.getElementById('visor');
+    const visorImg = document.getElementById('visor-img');
+    const titulo = document.getElementById('visor-titulo');
+    const lienzo = document.getElementById('lienzo');
+    let par = 0;
+    let lado = 0;
+    let escala = 1;
+    let x = 0;
+    let y = 0;
+    let arrastrando = false;
+    let origenX = 0;
+    let origenY = 0;
+    let baseX = 0;
+    let baseY = 0;
+    function pintar() {
+      const item = pares[par][lado];
+      visorImg.src = item.src;
+      visorImg.alt = item.alt;
+      titulo.textContent = item.titulo + ' - ' + item.lado;
+      visorImg.style.transform = 'translate(calc(-50% + ' + x + 'px), calc(-50% + ' + y + 'px)) scale(' + escala + ')';
+    }
+    function abrir(indicePar, indiceLado) {
+      par = indicePar;
+      lado = indiceLado;
+      escala = 1;
+      x = 0;
+      y = 0;
+      visor.hidden = false;
+      visor.classList.add('abierto');
+      document.body.style.overflow = 'hidden';
+      pintar();
+    }
+    function cerrar() {
+      visor.classList.remove('abierto');
+      visor.hidden = true;
+      document.body.style.overflow = '';
+    }
+    function zoom(delta) {
+      escala = Math.min(6, Math.max(0.4, Math.round((escala + delta) * 10) / 10));
+      pintar();
+    }
+    document.getElementById('visor-cerrar').addEventListener('click', cerrar);
+    document.getElementById('zoom-in').addEventListener('click', () => zoom(0.25));
+    document.getElementById('zoom-out').addEventListener('click', () => zoom(-0.25));
+    document.getElementById('zoom-reset').addEventListener('click', () => { escala = 1; x = 0; y = 0; pintar(); });
+    lienzo.addEventListener('wheel', (event) => {
+      event.preventDefault();
+      zoom(event.deltaY < 0 ? 0.15 : -0.15);
+    }, { passive: false });
+    lienzo.addEventListener('pointerdown', (event) => {
+      arrastrando = true;
+      lienzo.classList.add('arrastrando');
+      origenX = event.clientX;
+      origenY = event.clientY;
+      baseX = x;
+      baseY = y;
+      lienzo.setPointerCapture(event.pointerId);
+    });
+    lienzo.addEventListener('pointermove', (event) => {
+      if (!arrastrando) return;
+      x = baseX + (event.clientX - origenX);
+      y = baseY + (event.clientY - origenY);
+      pintar();
+    });
+    lienzo.addEventListener('pointerup', () => {
+      arrastrando = false;
+      lienzo.classList.remove('arrastrando');
+    });
+    document.addEventListener('keydown', (event) => {
+      if (visor.hidden) return;
+      if (event.key === 'Escape') cerrar();
+      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+        lado = lado === 0 ? 1 : 0;
+        pintar();
+      }
+      if (event.key === '+' || event.key === '=') zoom(0.25);
+      if (event.key === '-' || event.key === '_') zoom(-0.25);
+      if (event.key === '0') { escala = 1; x = 0; y = 0; pintar(); }
+    });
+  </script>
+</body>
+</html>
