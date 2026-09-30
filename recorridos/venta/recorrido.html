@@ -153,7 +153,7 @@
       .layout { grid-template-columns: 1fr; }
       nav { position: static; }
     }
-      .volver { max-width: 1280px; margin: 0 auto; padding: 8px 16px 0; }
+    .volver { max-width: 1280px; margin: 0 auto; padding: 8px 16px 0; }
     .volver a { color: #1c1917; font-weight: 650; text-decoration: none; }
     .volver a:hover { text-decoration: underline; }
   </style>
@@ -264,24 +264,38 @@
         mod: "Contabilidad", cls: "conta",
         title: "8. El comprobante",
         img: "06-asientos-lista.png",
-        alt: "Listado de asientos filtrado por 20260026",
+        alt: "Listado de asientos filtrado por 20260033",
         pins: [
-          { x: 48.2, y: 35.2, t: "Buscar", d: "El número 20260026 es el que el libro mostró en la factura 87. Esta pantalla ya es Contabilidad, no Ventas. Todos muestra el asiento, que es de septiembre." },
-          { x: 90, y: 55.7, t: "Ver", d: "Abre las líneas. Este comprobante dice MANUAL porque se grabó antes del ajuste. Uno nuevo queda tipo VENTAS. El mismo asiento entra al libro diario y al mayor de su periodo, 2026-09." }
+          { x: 48.2, y: 35.2, t: "Buscar", d: "El número 20260033 es el comprobante de la factura folio 88, cereza, total $266.382. Todos muestra el asiento de septiembre. El tipo es VENTAS y la glosa FACTURA 9/2026." },
+          { x: 88.7, y: 55.7, t: "Ver", d: "Abre las líneas. La columna Cuenta muestra el código del plan. Este comprobante es de septiembre y entra al libro diario y al mayor de 2026-09." }
         ]
       },
       {
         mod: "Contabilidad", cls: "conta",
         title: "9. Líneas del asiento",
         img: "07-asiento-detalle.png",
-        alt: "Detalle del asiento 20260026 con tres líneas",
+        alt: "Detalle del asiento 20260033 con cuentas del plan, tipo 33 y folio 88",
         pins: [
-          { x: 76, y: 78.3, t: "Editar", d: "Las líneas de arriba no son botones: debe clientes $11.008, haber del ítem $9.250 y haber IVA débito $1.758. Editar abre el comprobante. Cerrar lo deja como está." }
+          { x: 31.1, y: 59.3, t: "Cuenta", d: "Línea por cobrar: 1-1-04-01-001 (110401001) CLIENTES, debe $266.382. Es factura afecta, no exportación, por eso no usa Clientes exportación. El haber del ítem es 5-1-01-01-002 (510101002) INGRESO POR VENTA FRUTA M.INTERNO, $223.850." },
+          { x: 41.4, y: 59.3, t: "Tipo", d: "33 es el tipo de DTE de la factura afecta. Va en la línea de clientes. Las otras líneas no llevan referencia." },
+          { x: 43.9, y: 59.3, t: "Nro", d: "88 es el folio oficial del DTE. El vencimiento 30-10-2026 es la fecha de cobro: la factura no traía vencimiento, y queda la fecha del documento más 30 días. Imprimir abre la hoja del paso siguiente." }
+        ]
+      },
+      {
+        mod: "Contabilidad", cls: "conta",
+        title: "10. Vista impresa",
+        img: "10-comprobante-impreso.png",
+        alt: "Comprobante de ventas 20260033 impreso, con cuenta, tipo 33, folio 88 y vencimiento",
+        pins: [
+          { x: 3.8, y: 27.4, t: "Cuenta", d: "En la hoja la cuenta sale con el código de 9 dígitos del plan: 110401001 CLIENTES y 510101002 INGRESO POR VENTA FRUTA M.INTERNO. El centro 1002 va en la columna CC." },
+          { x: 41, y: 27.4, t: "Tipo", d: "33 es el tipo de DTE, factura afecta. Queda en la referencia de la línea de clientes." },
+          { x: 44.3, y: 27.4, t: "Nro", d: "88 es el folio oficial del DTE, no el número del comprobante. El comprobante es 20260033, arriba a la derecha." },
+          { x: 49.8, y: 27.4, t: "Vcto", d: "30/10/2026 es la fecha de cobro. La factura no traía vencimiento, así que son 30 días desde el 30/09/2026. Solo va en la línea de clientes." }
         ]
       },
       {
         mod: "Tesorería", cls: "teso",
-        title: "10. Deuda del cliente",
+        title: "11. Deuda del cliente",
         img: "08-cuenta-corriente.png",
         alt: "Estado de cuenta de ALM SERVICES con saldo cliente 11008",
         pins: [
@@ -292,7 +306,7 @@
       },
       {
         mod: "Tesorería", cls: "teso",
-        title: "11. El movimiento de la venta",
+        title: "12. El movimiento de la venta",
         img: "09-cuenta-detalle.png",
         alt: "Detalle de cuenta corriente con la venta pendiente de 11008",
         pins: [
@@ -302,7 +316,7 @@
       },
       {
         mod: "Tesorería", cls: "teso",
-        title: "12. Cobrar",
+        title: "13. Cobrar",
         img: "11-pagos.png",
         alt: "Formulario de nuevo pago precargado con la factura de ALM SERVICES",
         pins: [
