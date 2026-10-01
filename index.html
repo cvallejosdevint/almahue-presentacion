@@ -25,76 +25,89 @@
     }
     h1 { font-size: 1.8rem; margin: 0 0 8px; }
     header p { margin: 0; color: #44403c; max-width: 62ch; }
-    section {
-      margin-top: 28px;
+    article {
+      margin-top: 18px;
       background: #fff;
       border: 1px solid #e7e5e4;
       border-radius: 12px;
-      padding: 8px 8px 12px;
+      padding: 14px 18px 16px;
     }
-    h2 { font-size: 1.15rem; margin: 12px 14px 4px; }
-    section > p { margin: 0 14px 8px; color: #57534e; }
-    ul { list-style: none; margin: 0; padding: 0; }
-    li a {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 12px;
+    article header {
+      display: flex;
       align-items: baseline;
-      padding: 12px 14px;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0;
+      max-width: none;
+    }
+    h2 { font-size: 1.15rem; margin: 0; }
+    time { color: #78716c; font-size: 0.9rem; white-space: nowrap; }
+    article p { margin: 8px 0 12px; color: #57534e; }
+    .links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .links a {
+      display: inline-block;
+      padding: 8px 12px;
       border-radius: 8px;
+      background: #f5f5f4;
       color: inherit;
+      font-weight: 650;
       text-decoration: none;
     }
-    li a:hover { background: #f5f5f4; }
-    li strong { font-weight: 650; }
-    li span { color: #78716c; font-size: 0.9rem; white-space: nowrap; }
-    .pie { margin: 8px 14px 0; color: #57534e; font-size: 0.92rem; }
+    .links a:hover { background: #e7e5e4; }
+    .pie { margin: 22px 0 28px; color: #57534e; font-size: 0.92rem; }
   </style>
 </head>
 <body>
   <header>
     <p class="marca">Almahue ERP</p>
     <h1>Explicaciones</h1>
-    <p>Material para revisar el sistema con el cliente: comparaciones de un ajuste y recorridos por los módulos.</p>
+    <p>Cada cambio tiene su antes y después y, cuando el recorrido ya está armado, el camino con un número sobre cada control.</p>
   </header>
   <main>
-    <section>
-      <h2>Comparaciones</h2>
-      <p>La misma pantalla antes y después de un cambio.</p>
-      <ul>
-        <li>
-          <a href="comparaciones/parametrizacion/comparacion.html">
-            <strong>Parametrización</strong>
-            <span>24/09/2026</span>
-          </a>
-        </li>
-        <li>
-          <a href="comparaciones/asiento-ventas/comparacion.html">
-            <strong>Asiento de ventas</strong>
-            <span>29/09/2026</span>
-          </a>
-        </li>
-        <li>
-          <a href="comparaciones/nomina-semanal/comparacion.html">
-            <strong>Nómina semanal</strong>
-            <span>29/09/2026</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-    <section>
-      <h2>Recorridos</h2>
-      <p>Un camino por varias pantallas, con un número sobre cada botón o campo.</p>
-      <ul>
-        <li>
-          <a href="recorridos/venta/recorrido.html">
-            <strong>De la orden de venta al asiento y a tesorería</strong>
-            <span>29/09/2026</span>
-          </a>
-        </li>
-      </ul>
-      <p class="pie">En el recorrido, Anterior y Siguiente avanzan el número. Cada página tiene Volver al inicio.</p>
-    </section>
+    <article>
+      <header>
+        <h2>Libro de compras</h2>
+        <time>01/10/2026</time>
+      </header>
+      <p>Avisar, asociar la orden y de dónde sale la fila del libro y el documento que después lista la nómina.</p>
+      <div class="links">
+        <a href="comparaciones/libro-compras/comparacion.html">Antes y después</a>
+        <a href="recorridos/libro-compras/recorrido.html">Recorrido</a>
+      </div>
+    </article>
+    <article>
+      <header>
+        <h2>Nómina semanal</h2>
+        <time>01/10/2026</time>
+      </header>
+      <p>Semanas del periodo, avisos de atraso y la lista hasta la semana en curso. El antes es del 29/09.</p>
+      <div class="links">
+        <a href="comparaciones/nomina-semanal/comparacion.html">Antes y después</a>
+        <a href="recorridos/nomina-semanal/recorrido.html">Recorrido</a>
+      </div>
+    </article>
+    <article>
+      <header>
+        <h2>Ventas, del documento al asiento</h2>
+        <time>29/09/2026</time>
+      </header>
+      <p>La misma factura en el comprobante, y el camino desde la orden de venta hasta tesorería.</p>
+      <div class="links">
+        <a href="comparaciones/asiento-ventas/comparacion.html">Antes y después</a>
+        <a href="recorridos/venta/recorrido.html">Recorrido</a>
+      </div>
+    </article>
+    <article>
+      <header>
+        <h2>Parametrización</h2>
+        <time>24/09/2026</time>
+      </header>
+      <p>Centros, elementos, códigos financieros y la ficha de proveedor.</p>
+      <div class="links">
+        <a href="comparaciones/parametrizacion/comparacion.html">Antes y después</a>
+      </div>
+    </article>
+    <p class="pie">En el recorrido, Anterior y Siguiente avanzan el número. Cada página vuelve al inicio y cruza a la otra parte del mismo cambio.</p>
   </main>
 </body>
 </html>

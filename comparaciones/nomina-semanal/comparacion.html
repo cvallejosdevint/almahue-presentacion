@@ -56,6 +56,10 @@
     @media (max-width: 900px) {
       .pair { grid-template-columns: 1fr; }
     }
+    .volver { max-width: 1600px; margin: 0 auto; padding: 14px 32px 0; }
+    .volver a, .hermanos a { color: #1c1917; font-weight: 650; text-decoration: none; }
+    .volver a:hover, .hermanos a:hover { text-decoration: underline; }
+    .hermanos { max-width: 1600px; margin: 0 auto; padding: 0 32px; }
     .visor {
       position: fixed;
       inset: 0;
@@ -101,16 +105,14 @@
       user-select: none;
       -webkit-user-drag: none;
     }
-      .volver { max-width: 1600px; margin: 0 auto; padding: 14px 32px 0; }
-    .volver a { color: #1c1917; font-weight: 650; text-decoration: none; }
-    .volver a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
   <p class="volver"><a href="../../index.html">Volver al inicio</a></p>
+  <p class="hermanos"><a href="../../recorridos/nomina-semanal/recorrido.html">Recorrido de este cambio</a></p>
   <header>
     <h1>Nómina semanal - antes y después</h1>
-    <p>29/09/2026. Empresa ALMAHUE EXPORT SPA, periodo 2026-09, modo real. Cada fila es la misma pantalla a tamaño de escritorio: a la izquierda como estaba, a la derecha con lo nuevo.</p>
+    <p>Empresa ALMAHUE EXPORT SPA, modo real. El antes es del 29/09. El después es la pantalla de hoy, 01/10, periodo 2026-09. Cada fila es la misma pantalla: a la izquierda como estaba, a la derecha como está ahora.</p>
     <p>El recuadro verde y la etiqueta NUEVO están solo en la captura, no en el sistema. Un clic abre la imagen. La rueda o las teclas + y - hacen zoom. Izquierda y derecha cambian entre el antes y el después. Esc cierra.</p>
   </header>
 
@@ -123,14 +125,14 @@
       </figure>
       <figure class="despues">
         <figcaption>Después</figcaption>
-        <img src="despues-semana.png" alt="Nómina con franja de semanas, plazos y filtros marcados en verde" />
+        <img src="despues-semana.png" alt="Nómina de hoy, con periodo actual, semanas del mes y avisos de atraso marcados en verde" />
       </figure>
     </div>
-    <p class="nota">La franja marca la semana anterior, la en curso y la siguiente, y suma los pendientes de cada bloque. Un clic abre esa semana y sale de la vista acumulada. En el ejemplo, S5 de septiembre 2026 es la semana en curso (29 y 30). S3 queda seleccionada porque es la semana que estaba abierta, con 1 pendiente. S4 muestra 2.</p>
+    <p class="nota">Periodo actual lista las semanas del mes de la sesión. S3 de septiembre queda seleccionada, con 1 pendiente. S4 muestra 3. Atrasados histórico abre el rango hasta la semana en curso. A la derecha, Atraso filtra la lista y Editar abre los avisos. No se sincronizó ni se movió ningún documento.</p>
   </section>
 
   <section>
-    <h2>Pendientes hasta la semana en curso, y plazos de crítico</h2>
+    <h2>Avisos de atraso</h2>
     <div class="pair">
       <figure class="antes">
         <figcaption>Antes</figcaption>
@@ -138,20 +140,19 @@
       </figure>
       <figure class="despues">
         <figcaption>Después</figcaption>
-        <img src="despues-plazos.png" alt="Mantenedor de plazos abierto, recuadro verde en el panel" />
+        <img src="despues-plazos.png" alt="Modal Avisos de atraso, marcado en verde, sin guardar" />
       </figure>
     </div>
     <ul class="nota">
-      <li>Pendientes hasta la semana en curso lista lo que sigue abierto en bloques anteriores o en el actual. Desde y hasta, por vencimiento, achican esa lista y también la exportación.</li>
-      <li>El umbral general de Crítico parte en 30 días. Atrasada sigue siendo el atraso por debajo de ese número, en rojo. Crítico va en violeta.</li>
-      <li>Un proveedor puede tener su propio número. Si lo tiene, reemplaza al general. Los filtros 30 y 90 son atajos de días de atraso: no cambian el umbral.</li>
-      <li>Pagar no borra el aviso. La fila pasa a Pagada.</li>
-      <li>En esta empresa las tres facturas vencen en octubre, así que ninguna fila está atrasada. El violeta se ve en la muestra del mantenedor.</li>
+      <li>Editar abre este modal. Atrasada parte el día 1, Crítico el día 30 y 90 días el día 90. Si hay varios, gana el de más días.</li>
+      <li>El atajo solo filtra la lista. No cambia el día del aviso.</li>
+      <li>Un proveedor puede tener su propio día de crítico. Si lo tiene, reemplaza al del aviso solo para él.</li>
+      <li>Pagar no borra el aviso. La fila pasa a Pagada. No se apretó Guardar.</li>
     </ul>
   </section>
 
   <section>
-    <h2>Lista acumulada</h2>
+    <h2>Atrasados histórico</h2>
     <div class="pair">
       <figure class="antes">
         <figcaption>Antes</figcaption>
@@ -159,10 +160,10 @@
       </figure>
       <figure class="despues">
         <figcaption>Después</figcaption>
-        <img src="despues-tabla.png" alt="Tres facturas hasta la semana en curso, las dos nuevas con recuadro verde" />
+        <img src="despues-tabla.png" alt="Atrasados histórico con cuatro documentos, los tres de ALM SERVICES marcados en verde" />
       </figure>
     </div>
-    <p class="nota">Antes, S3 mostraba solo 33-1001 ($237.881). Con pendientes hasta la semana en curso aparecen también 56 y 57 de S4, marcadas en verde. El total de esa vista es $261.681. Desde y hasta recortan por vencimiento. Al pulsar una semana de la franja, la lista vuelve a ese bloque.</p>
+    <p class="nota">Antes, S3 mostraba solo 33-1001 ($237.881). Atrasados histórico abre los pendientes hasta la semana en curso: de S3 de septiembre a S1 de octubre. Entran 59, 57 y 56 de ALM SERVICES, marcadas en verde. El total de ese rango es $272.986. Desde y hasta recortan el rango. No se movió ningún documento.</p>
   </section>
 
   <div class="visor" id="visor" hidden>
