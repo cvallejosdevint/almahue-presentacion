@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Lo que no se mostró el 1 de octubre - antes y después</title>
+  <style>
+    :root { color-scheme: light; }
+    body { margin: 0; font: 16px/1.45 "Segoe UI", sans-serif; background: #f4f1ea; color: #1c1917; }
+    header, section { max-width: 1600px; margin: 0 auto; padding: 0 32px; }
+    header { padding-top: 28px; }
+    h1 { font-size: 1.6rem; margin: 0 0 8px; }
+    header p, .nota { margin: 0 0 8px; color: #57534e; }
+    section { margin: 28px auto; padding-bottom: 8px; }
+    h2 { font-size: 1.15rem; margin: 0 0 12px; }
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+    figure { margin: 0; background: #fff; border: 1px solid #e7e5e4; border-radius: 10px; overflow: hidden; }
+    figcaption { padding: 10px 14px; font-weight: 700; }
+    figure.antes figcaption { background: #e7e5e4; }
+    figure.despues figcaption { background: #dcfce7; color: #14532d; }
+    figure img { display: block; width: 100%; height: auto; cursor: zoom-in; }
+    ul.nota { padding-left: 1.2rem; }
+    ul.nota li { margin: 4px 0; }
+    @media (max-width: 900px) { .pair { grid-template-columns: 1fr; } }
+    .volver { max-width: 1600px; margin: 0 auto; padding: 14px 32px 0; }
+    .volver a { color: #1c1917; font-weight: 650; text-decoration: none; }
+    .volver a:hover { text-decoration: underline; }
+    .hermanos { max-width: 1600px; margin: 0 auto; padding: 8px 32px 0; }
+    .hermanos a { color: #1c1917; font-weight: 650; }
+    .visor { position: fixed; inset: 0; z-index: 20; display: none; background: rgba(12, 10, 9, 0.92); color: #fafaf9; }
+    .visor.abierto { display: block; }
+    .visor-bar { position: absolute; top: 0; left: 0; right: 0; z-index: 2; display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: linear-gradient(rgba(12, 10, 9, 0.85), transparent); }
+    .visor-bar strong { margin-right: auto; font-size: 0.95rem; }
+    .visor-bar span { color: #d6d3d1; font-size: 0.85rem; }
+    .visor button { border: 0; border-radius: 8px; background: #292524; color: #fafaf9; font: 600 14px/1 "Segoe UI", sans-serif; padding: 8px 12px; cursor: pointer; }
+    .lienzo { position: absolute; inset: 0; overflow: hidden; cursor: grab; touch-action: none; }
+    .lienzo.arrastrando { cursor: grabbing; }
+    .lienzo img { position: absolute; top: 50%; left: 50%; max-width: none; max-height: 88vh; transform-origin: center center; user-select: none; }
+  </style>
+</head>
+<body>
+  <p class="volver"><a href="../../index.html">Volver al inicio</a></p>
+  <p class="hermanos"><a href="../../recorridos/no-mostrado-01-10/recorrido.html">Recorrido de este cambio</a></p>
+  <header>
+    <h1>Lo que no se mostró el 1 de octubre - antes y después</h1>
+    <p>06/10/2026. ALMAHUE EXPORT SPA, modo real. En la reunión del 1 de octubre se vieron parametrización, el comprobante como estaba, el libro de compras de ese día y la nómina. Esto es lo que quedó fuera: los tres ajustes pedidos en la sala, la cadena según el rol, los indicadores y la revaluación, y el libro de compras del 5 de octubre. El recuadro verde y la etiqueta NUEVO están solo en la captura, no en el sistema. Nada se guardó, no se sincronizó y no se envió un evento.</p>
+  </header>
+
+  <section>
+    <h2>Comprobante de venta</h2>
+    <div class="pair">
+      <figure class="antes">
+        <figcaption>Antes</figcaption>
+        <img src="comprobante-antes.png" alt="Asiento 20260034 con la línea de IVA en la cuenta CAJA" />
+      </figure>
+      <figure class="despues">
+        <figcaption>Después</figcaption>
+        <img src="comprobante-despues.png" alt="El mismo asiento con IVA débito, glosa repetida y columnas de dólar y yuan" />
+      </figure>
+    </div>
+    <p class="nota">MJ lo pidió en la sala y no alcanzó a verse corregido. La pantalla muestra IVA débito fiscal (2-1-09-02-001). Cada línea repite la glosa. Pesos, dólar y yuan salen del Banco Central. No se contabilizó ni se imprimió.</p>
+  </section>
+
+  <section>
+    <h2>Ficha de proveedor</h2>
+    <div class="pair">
+      <figure class="antes">
+        <figcaption>Antes</figcaption>
+        <img src="ficha-antes.png" alt="Nuevo proveedor con el RUT escrito y sin marca" />
+      </figure>
+      <figure class="despues">
+        <figcaption>Después</figcaption>
+        <img src="ficha-despues.png" alt="El mismo RUT con la marca de que también es cliente" />
+      </figure>
+    </div>
+    <p class="nota">El RUT 77.032.639-7 ya es el cliente ALM SERVICES SPA. Aparece la marca y se completan los campos vacíos. Los módulos siguen separados. No se apretó Guardar ficha.</p>
+  </section>
+
+  <section>
+    <h2>Integrantes del grupo de aprobación</h2>
+    <div class="pair">
+      <figure class="antes">
+        <figcaption>Antes</figcaption>
+        <img src="integrantes-antes.png" alt="Lista corta de miembros sin las personas ya marcadas a la vista" />
+      </figure>
+      <figure class="despues">
+        <figcaption>Después</figcaption>
+        <img src="integrantes-despues.png" alt="Chips de integrantes y la lista que mantiene a los marcados al buscar" />
+      </figure>
+    </div>
+    <p class="nota">Carlos nombró el bug en la sala. Al buscar Andres, Elena, Felipe y Natalia siguen marcados. No se apretó Guardar.</p>
+  </section>
+
+  <section>
+    <h2>Reglas de aprobación</h2>
+    <div class="pair">
+      <figure class="antes">
+        <figcaption>Antes</figcaption>
+        <img src="reglas-antes.png" alt="Reglas de aprobación con el selector que solo ofrece Compras (OC)" />
+      </figure>
+      <figure class="despues">
+        <figcaption>Después</figcaption>
+        <img src="reglas-despues.png" alt="Reglas de aprobación sin selector de módulo" />
+      </figure>
+    </div>
+    <p class="nota">Se quitó el selector que solo mostraba Compras (OC). La cadena es de compras y ya no elige concepto. No se apretó Guardar.</p>
+  </section>
+
+  <section>
+    <h2>Usuarios</h2>
+    <div class="pair">
+      <figure class="antes">
+        <figcaption>Antes</figcaption>
+        <img src="usuario-antes.png" alt="Usuario Andres Pino con rol Ventas, sin aviso de la cadena" />
+      </figure>
+      <figure class="despues">
+        <figcaption>Después</figcaption>
+        <img src="usuario-despues.png" alt="Aviso de que el rol Ventas no entra a Compras, marcado en verde" />
+      </figure>
+    </div>
+    <p class="nota">Debajo del rol se lee si esa persona puede estar en la cadena. Andres Pino tiene Ventas, y ese rol no abre Compras. No se apretó Guardar usuario.</p>
+  </section>
+
+  <section>
+    <h2>Grupo de la cadena</h2>
+    <div class="pair">
+      <figure class="antes">
+        <figcaption>Antes</figcaption>
+        <img src="grupo-antes.png" alt="Grupo con selector de módulo y la lista completa de usuarios" />
+      </figure>
+      <figure class="despues">
+        <figcaption>Después</figcaption>
+        <img src="grupo-despues.png" alt="Grupo sin selector de módulo y Andres Pino fuera de la cadena, marcado en verde" />
+      </figure>
+    </div>
+    <p class="nota">El grupo ya no pide un módulo. Lista a quien puede entrar a Compras. Andres Pino queda deshabilitado por su rol Ventas. No se apretó Guardar grupo.</p>
+  </section>
+
+  <section>
+    <h2>Indicadores del Banco Central</h2>
+    <div class="pair">
+      <figure class="antes">
+        <figcaption>Antes</figcaption>
+        <img src="indicadores-antes.png" alt="Indicadores BC con la tarjeta solo del dólar observado" />
+      </figure>
+      <figure class="despues">
+        <figcaption>Después</figcaption>
+        <img src="indicadores-despues.png" alt="La misma tarjeta con euro y yuan al lado, marcados en verde" />
+      </figure>
+    </div>
+    <p class="nota">La tarjeta muestra las otras paridades cargadas: euro 1.098,15 y yuan 143,79. La UF entra en esa fila cuando haya un valor. No se apretó Sincronizar, Consultar ni Importar.</p>
+  </section>
+
+  <section>
+    <h2>Revaluación de cierre</h2>
+    <div class="pair">
+      <figure class="antes">
+        <figcaption>Antes</figcaption>
+        <img src="revaluacion-antes.png" alt="Períodos contables, antes de abrir el modal" />
+      </figure>
+      <figure class="despues">
+        <figcaption>Después</figcaption>
+        <img src="revaluacion-despues.png" alt="Modal de revaluación con dólar y euro de cierre marcados" />
+      </figure>
+    </div>
+    <p class="nota">En un período abierto, Revaluar TC abre el cierre NIC 21. El dólar y el euro de cierre salen del Banco Central (984,82 y 1.108,4074 al 31/10/2026). El modal simula al abrirse. No se apretó Contabilizar Revaluación. Se cerró con Cancelar.</p>
+  </section>
+
+  <section>
+    <h2>Libro de compras, Match OC</h2>
+    <div class="pair">
+      <figure class="antes">
+        <figcaption>Antes</figcaption>
+        <img src="libro-antes.png" alt="Libro de compras sin engranaje de sync y con la columna Match" />
+      </figure>
+      <figure class="despues">
+        <figcaption>Después</figcaption>
+        <img src="libro-despues.png" alt="Libro de compras con el engranaje de sync y la columna Match OC" />
+      </figure>
+    </div>
+    <p class="nota">José lo subió el 5 de octubre, después de la reunión. La rama local volvió atrás: estas pantallas no están en el ERP de ahora. Las fotos sirven para mostrarlas. No se apretó Sincronizar.</p>
+  </section>
+
+  <section>
+    <h2>Sync programado</h2>
+    <div class="pair">
+      <figure class="antes">
+        <figcaption>Antes</figcaption>
+        <img src="libro-antes.png" alt="La misma pantalla, sin modal de programación" />
+      </figure>
+      <figure class="despues">
+        <figcaption>Después</figcaption>
+        <img src="sync-despues.png" alt="Modal de sync programado con el combo Modo abierto, sin guardar" />
+      </figure>
+    </div>
+    <p class="nota">El engranaje abre modo, horario, frecuencia y alcance. El combo Modo está abierto: Manual o Automático. Se cerró con Cancelar. No se apretó Guardar.</p>
+  </section>
+
+  <section>
+    <h2>Aceptación comercial</h2>
+    <div class="pair">
+      <figure class="antes">
+        <figcaption>Antes</figcaption>
+        <img src="aceptacion-antes.png" alt="Modal de aceptación con Aceptar documento y Rechazar / Reclamar" />
+      </figure>
+      <figure class="despues">
+        <figcaption>Después</figcaption>
+        <img src="aceptacion-despues.png" alt="Modal de aceptación por pasos, con el combo Modo abierto" />
+      </figure>
+    </div>
+    <p class="nota">El modal pasa a un evento por vez: ACD (30), luego ERM (32), luego ARR (33). El combo Modo está abierto. El reclamo de mercadería queda apagado hasta el acuse. No se apretó Informar ACD. Se cerró con Cancelar. La factura 61 sigue sin OC en el ERP.</p>
+  </section>
+
+  <div class="visor" id="visor" hidden>
+    <div class="visor-bar">
+      <strong id="visor-titulo"></strong>
+      <span>izquierda / derecha: antes y después. + y - : zoom. Esc cierra</span>
+      <button type="button" id="zoom-out" aria-label="Alejar">-</button>
+      <button type="button" id="zoom-reset">100%</button>
+      <button type="button" id="zoom-in" aria-label="Acercar">+</button>
+      <button type="button" id="visor-cerrar">Cerrar</button>
+    </div>
+    <div class="lienzo" id="lienzo"><img id="visor-img" alt="" /></div>
+  </div>
+  <script>
+    const pares = [...document.querySelectorAll(".pair")].map((pair) => {
+      const titulo = pair.closest("section").querySelector("h2").textContent.trim();
+      return [...pair.querySelectorAll("img")].map((img) => ({
+        src: img.getAttribute("src"),
+        alt: img.alt,
+        lado: img.closest("figure").classList.contains("despues") ? "Después" : "Antes",
+        titulo,
+      }));
+    });
+    const visor = document.getElementById("visor");
+    const visorImg = document.getElementById("visor-img");
+    const titulo = document.getElementById("visor-titulo");
+    const lienzo = document.getElementById("lienzo");
+    let par = 0, lado = 0, escala = 1, x = 0, y = 0, arrastrando = false, origenX = 0, origenY = 0, baseX = 0, baseY = 0;
+    function pintar() {
+      const item = pares[par][lado];
+      visorImg.src = item.src;
+      visorImg.alt = item.alt;
+      titulo.textContent = item.titulo + " - " + item.lado;
+      visorImg.style.transform = "translate(calc(-50% + " + x + "px), calc(-50% + " + y + "px)) scale(" + escala + ")";
+    }
+    function abrir(indicePar, indiceLado) {
+      par = indicePar; lado = indiceLado; escala = 1; x = 0; y = 0;
+      visor.hidden = false; visor.classList.add("abierto");
+      document.body.style.overflow = "hidden";
+      pintar();
+    }
+    function cerrar() { visor.classList.remove("abierto"); visor.hidden = true; document.body.style.overflow = ""; }
+    function zoom(delta) { escala = Math.min(6, Math.max(0.4, Math.round((escala + delta) * 10) / 10)); pintar(); }
+    document.querySelectorAll(".pair img").forEach((img) => {
+      img.addEventListener("click", () => {
+        const pair = img.closest(".pair");
+        abrir([...document.querySelectorAll(".pair")].indexOf(pair), [...pair.querySelectorAll("img")].indexOf(img));
+      });
+    });
+    document.getElementById("visor-cerrar").addEventListener("click", cerrar);
+    document.getElementById("zoom-in").addEventListener("click", () => zoom(0.25));
+    document.getElementById("zoom-out").addEventListener("click", () => zoom(-0.25));
+    document.getElementById("zoom-reset").addEventListener("click", () => { escala = 1; x = 0; y = 0; pintar(); });
+    lienzo.addEventListener("wheel", (event) => { event.preventDefault(); zoom(event.deltaY < 0 ? 0.15 : -0.15); }, { passive: false });
+    lienzo.addEventListener("pointerdown", (event) => {
+      arrastrando = true; lienzo.classList.add("arrastrando");
+      origenX = event.clientX; origenY = event.clientY; baseX = x; baseY = y;
+      lienzo.setPointerCapture(event.pointerId);
+    });
+    lienzo.addEventListener("pointermove", (event) => {
+      if (!arrastrando) return;
+      x = baseX + (event.clientX - origenX);
+      y = baseY + (event.clientY - origenY);
+      pintar();
+    });
+    lienzo.addEventListener("pointerup", () => { arrastrando = false; lienzo.classList.remove("arrastrando"); });
+    document.addEventListener("keydown", (event) => {
+      if (visor.hidden) return;
+      if (event.key === "Escape") cerrar();
+      if (event.key === "ArrowRight" || event.key === "ArrowLeft") { lado = lado === 0 ? 1 : 0; pintar(); }
+      if (event.key === "+" || event.key === "=") zoom(0.25);
+      if (event.key === "-" || event.key === "_") zoom(-0.25);
+    });
+  </script>
+</body>
+</html>
